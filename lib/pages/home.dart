@@ -25,7 +25,7 @@ class Homepage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailMenu(menu: menus[index]),
+                  builder: (context) => DetailMenu(menus: menus[index]),
                 ),
               );
             },
@@ -34,7 +34,7 @@ class Homepage extends StatelessWidget {
             height: 60,
             ),
             title:Text (menus[index].name),
-            subtitle: Text ("Rp ${menus[index].price}"),
+            subtitle: Text (menus[index].price),
             trailing: Icon(Icons.arrow_forward_ios)
           );
         },

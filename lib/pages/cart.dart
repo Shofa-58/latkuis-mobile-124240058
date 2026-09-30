@@ -36,7 +36,7 @@ class _CartPageState extends State<CartPage> {
                 return ListTile(
                   leading: Image.network(item.image, width: 50, height: 50),
                   title: Text(item.name),
-                  subtitle: Text('Rp ${item.price}'),
+                  subtitle: Text(item.price),
                   trailing: IconButton(
                     icon: const Icon(Icons.delete, color: Colors.red),
                     onPressed: () {
