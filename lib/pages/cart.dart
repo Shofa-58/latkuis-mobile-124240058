@@ -11,20 +11,22 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
-    // Filter list menu yang isCart == true
-    final cartItems = menus.where((item) => item.isCart).toList();
+    // Kumpulkan item yang isCart == true pakai for loop biasa
+    List<Menu> cartItems = [];
+    for (var item in menus) {
+      if (item.isCart == true) {
+        cartItems.add(item);
+      }
+    }
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Keranjang',
-                  style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.blue,
-        ))
+        title: const Text('Keranjang'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
       ),
       body: cartItems.isEmpty
-          ? Center(
+          ? const Center(
               child: Text('Keranjang masih kosong'),
             )
           : ListView.builder(
@@ -36,10 +38,10 @@ class _CartPageState extends State<CartPage> {
                   title: Text(item.name),
                   subtitle: Text('Rp ${item.price}'),
                   trailing: IconButton(
-                    icon: Icon(Icons.delete, color: Colors.red),
+                    icon: const Icon(Icons.delete, color: Colors.red),
                     onPressed: () {
                       setState(() {
-                        item.isCart = false; // Mengeluarkan item dari keranjang
+                        item.isCart = false; // Mengubah status di list utama
                       });
                     },
                   ),
